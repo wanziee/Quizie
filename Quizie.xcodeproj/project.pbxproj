@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		26A6477F2D1D9F4000ACFF3E /* belajar swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "belajar swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A6477F2D1D9F4000ACFF3E /* Quizie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		26A647812D1D9F4000ACFF3E /* belajar swift */ = {
+		26A647812D1D9F4000ACFF3E /* Quizie */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "belajar swift";
+			path = Quizie;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		26A647762D1D9F4000ACFF3E = {
 			isa = PBXGroup;
 			children = (
-				26A647812D1D9F4000ACFF3E /* belajar swift */,
+				26A647812D1D9F4000ACFF3E /* Quizie */,
 				26A647802D1D9F4000ACFF3E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		26A647802D1D9F4000ACFF3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				26A6477F2D1D9F4000ACFF3E /* belajar swift.app */,
+				26A6477F2D1D9F4000ACFF3E /* Quizie.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		26A6477E2D1D9F4000ACFF3E /* belajar swift */ = {
+		26A6477E2D1D9F4000ACFF3E /* Quizie */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 26A6478D2D1D9F4100ACFF3E /* Build configuration list for PBXNativeTarget "belajar swift" */;
+			buildConfigurationList = 26A6478D2D1D9F4100ACFF3E /* Build configuration list for PBXNativeTarget "Quizie" */;
 			buildPhases = (
 				26A6477B2D1D9F4000ACFF3E /* Sources */,
 				26A6477C2D1D9F4000ACFF3E /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				26A647812D1D9F4000ACFF3E /* belajar swift */,
+				26A647812D1D9F4000ACFF3E /* Quizie */,
 			);
-			name = "belajar swift";
+			name = Quizie;
 			packageProductDependencies = (
 			);
 			productName = "belajar swift";
-			productReference = 26A6477F2D1D9F4000ACFF3E /* belajar swift.app */;
+			productReference = 26A6477F2D1D9F4000ACFF3E /* Quizie.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 26A6477A2D1D9F4000ACFF3E /* Build configuration list for PBXProject "belajar swift" */;
+			buildConfigurationList = 26A6477A2D1D9F4000ACFF3E /* Build configuration list for PBXProject "Quizie" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				26A6477E2D1D9F4000ACFF3E /* belajar swift */,
+				26A6477E2D1D9F4000ACFF3E /* Quizie */,
 			);
 		};
 /* End PBXProject section */
@@ -251,10 +251,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"belajar swift/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Quizie/Preview Content\"";
 				DEVELOPMENT_TEAM = 2F6296QS98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "belajar-swift-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,10 +281,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"belajar swift/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Quizie/Preview Content\"";
 				DEVELOPMENT_TEAM = 2F6296QS98;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "belajar-swift-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -305,7 +307,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		26A6477A2D1D9F4000ACFF3E /* Build configuration list for PBXProject "belajar swift" */ = {
+		26A6477A2D1D9F4000ACFF3E /* Build configuration list for PBXProject "Quizie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26A6478B2D1D9F4100ACFF3E /* Debug */,
@@ -314,7 +316,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		26A6478D2D1D9F4100ACFF3E /* Build configuration list for PBXNativeTarget "belajar swift" */ = {
+		26A6478D2D1D9F4100ACFF3E /* Build configuration list for PBXNativeTarget "Quizie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				26A6478E2D1D9F4100ACFF3E /* Debug */,
