@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct belajar_swiftApp: App {
+struct Quizie: App {
     @AppStorage("isOnboardingCompleted") var isOnboardingCompleted = false
     @StateObject var triviaManager = TriviaManager()
     var body: some Scene {
