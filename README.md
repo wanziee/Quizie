@@ -14,7 +14,7 @@ Quizie adalah aplikasi kuis interaktif yang dibuat dengan Swift dan SwiftUI. Apl
 - MVVM Architecture
 
 
+📷 Tampilan Aplikasi
+https://github.com/user-attachments/assets/e80cdea9-ad0d-4f21-9de2-1f15d58b2bbd
 
-
-https://github.com/user-attachments/assets/b5aab086-759e-41d0-8276-5835e99385cf
 
