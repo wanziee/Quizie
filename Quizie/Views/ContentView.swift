@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var activeTab: TabModel = .home
+    @State private var activeTab: TabModel = .home 
     @State private var isTabBarHidden: Bool = false
     
     
@@ -18,7 +18,7 @@ struct ContentView: View {
                 if #available(iOS 18, *){
                     TabView(selection: $activeTab){
                         Tab.init(value: .home){
-                            HomeScreen()
+                            HomeScreen(isTabBarHidden: $isTabBarHidden)
                                 .environmentObject(TriviaManager())
                                 .toolbarVisibility(.hidden, for: .tabBar)
                             
@@ -49,7 +49,7 @@ struct ContentView: View {
                     }
                 }
             }
-            if !isTabBarHidden { // Sembunyikan TabBar jika `true`
+            if !isTabBarHidden { 
                 CustomTabBar(activeTab: $activeTab)
             }
         }

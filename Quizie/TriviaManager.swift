@@ -83,16 +83,17 @@ class TriviaManager: ObservableObject{
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let decodedData = try decoder.decode(Trivia.self, from: data)
             
-            DispatchQueue.main.async{
+            
+            DispatchQueue.main.async {
+                self.trivia = decodedData.results
+                self.length = self.trivia.count
                 self.index = 0
                 self.score = 0
                 self.progress = 0.00
                 self.reachedEnd = false
-                
-                self.trivia = decodedData.results
-                self.length = self.trivia.count
                 self.setQuestion()
             }
+            
             
         } catch {
             print("error fetching trivia \(error)")
@@ -147,10 +148,8 @@ class TriviaManager: ObservableObject{
         }
     }
     
-    func playQuiz(category: String) {
+    func playQuiz(category: String) async {
         self.category = category.lowercased() // Pastikan kategori sesuai dengan API
-        Task {
             await fetchTrivia() // Ambil pertanyaan baru
-        }
     }
 }

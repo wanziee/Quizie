@@ -11,6 +11,7 @@ struct QuizConfirmationView: View {
     let category: String
     @EnvironmentObject var triviaManager : TriviaManager
     @State private var isTriviaReady = false
+    @Binding var isTabBarHidden: Bool
     
     let categoryIcons: [String: String] = [
         "random": "🧠",
@@ -52,18 +53,21 @@ struct QuizConfirmationView: View {
         }
         .toolbar(.hidden, for: .tabBar)
         .navigationDestination(isPresented: $isTriviaReady) {
-            TriviaView()
+            TriviaView(isTabBarHidden: $isTabBarHidden)
                 .environmentObject(triviaManager)
         }
         .onAppear {
-            Task {
-                triviaManager.playQuiz(category: category)
+            Task{
+
+                print("📡 Calling playQuiz with category: \(category)") // Debugging
+                await triviaManager.playQuiz(category: category)
+                print("✅ Finished fetching trivia")
             }
         }
     }
 }
 
 #Preview {
-    QuizConfirmationView(category: "random")
+    QuizConfirmationView(category: "random", isTabBarHidden: .constant(false))
         .environmentObject(TriviaManager())
 }

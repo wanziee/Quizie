@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     @EnvironmentObject var triviaManager : TriviaManager
-    
+    @Binding var isTabBarHidden: Bool
     
     var body: some View {
         NavigationStack{
@@ -53,13 +53,13 @@ struct HomeScreen: View {
                             Text("Popular Quizes 🔥")
                                 .font(Font.custom("Oswald", size: 25))
                                 .fontWeight(.heavy)
-                            CardPopular()
+                            CardPopular(isTabBarHidden: $isTabBarHidden)
                                 .padding(.horizontal, -16)
                                 .environmentObject(triviaManager)
                         }
                         
 
-                        RecentPlayed()
+                        RecentPlayed(isTabBarHidden: $isTabBarHidden)
                             .environmentObject(triviaManager)
                             .padding(.top)
   
@@ -91,7 +91,7 @@ struct HomeScreen: View {
 }
 
 #Preview {
-    HomeScreen()
+    HomeScreen(isTabBarHidden: .constant(false))
         .environmentObject(TriviaManager())
         
 }

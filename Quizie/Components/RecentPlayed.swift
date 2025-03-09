@@ -12,6 +12,7 @@ import SwiftUI
 struct RecentPlayed: View {
     @EnvironmentObject var triviaManager: TriviaManager
     @State private var navigateToQuiz = false
+    @Binding var isTabBarHidden: Bool
 
     var body: some View {
         VStack {
@@ -42,7 +43,7 @@ struct RecentPlayed: View {
                             Spacer()
                             NavigationLink{
                                 
-                                QuizConfirmationView(category: item.category.lowercased())
+                                QuizConfirmationView(category: item.category.lowercased(), isTabBarHidden: $isTabBarHidden)
                                     .environmentObject(triviaManager)
                                 
                             }label: {
@@ -59,6 +60,6 @@ struct RecentPlayed: View {
 }
 
 #Preview {
-    RecentPlayed()
+    RecentPlayed(isTabBarHidden: .constant(false))
         .environmentObject(TriviaManager())
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TriviaView: View {
     @EnvironmentObject var triviaManager: TriviaManager
+    @Binding var isTabBarHidden: Bool
     var body: some View {
         
         if triviaManager.reachedEnd{
@@ -38,7 +39,7 @@ struct TriviaView: View {
                             }
                             
                             NavigationLink{
-                                HomeScreen()
+                                HomeScreen( isTabBarHidden: $isTabBarHidden)
                             } label: {
                                 PrimaryButton(text: "Go Home")
                             }
@@ -50,13 +51,12 @@ struct TriviaView: View {
         }else{
             QuestionView()
                 .environmentObject(triviaManager)
-
         }
         
     }
 }
 
 #Preview {
-    TriviaView()
+    TriviaView(isTabBarHidden: .constant(false))
         .environmentObject(TriviaManager())
 }

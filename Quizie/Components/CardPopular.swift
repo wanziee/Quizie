@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CardPopular: View {
     @EnvironmentObject var triviaManager: TriviaManager
+    @Binding var isTabBarHidden: Bool
     @State var quizCategories: [CardPopularModel] = [
         CardPopularModel(name: "Random", description: "Uji pengetahuan umummu dengan berbagai pertanyaan dari kategori acak.", category: "random", isLiked: false, img: "randomIMG", icon: "🧠"),
         CardPopularModel(name: "Geography", description: "Tes wawasan geografi dan pengetahuan tentang berbagai negara di dunia.", category: "geography", isLiked: false, img: "geographyIMG", icon: "🌎"),
@@ -26,7 +27,7 @@ struct CardPopular: View {
                                 VStack(alignment: .leading) {
                                     HStack {
                                         NavigationLink {
-                                            QuizConfirmationView(category: quiz.category)
+                                            QuizConfirmationView(category: quiz.category, isTabBarHidden: $isTabBarHidden)
                                                 .environmentObject(triviaManager)
                                                 .toolbar(.hidden, for: .tabBar)
                                             
@@ -79,6 +80,6 @@ struct CardPopular: View {
 }
 
 #Preview {
-    CardPopular()
+    CardPopular(isTabBarHidden: .constant(false))
         .environmentObject(TriviaManager())
 }
