@@ -2,6 +2,7 @@
 
 Quizie is an interactive quiz application built with Swift and SwiftUI. It allows users to answer quiz questions with an engaging and responsive interface.
 
+
 ⚠️ **Status:** The application is still in development (**Still in Progress**) and may contain many bugs.
 
 ## 📌 Features
