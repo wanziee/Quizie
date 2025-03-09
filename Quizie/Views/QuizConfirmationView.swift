@@ -10,7 +10,6 @@ import SwiftUI
 struct QuizConfirmationView: View {
     let category: String
     @EnvironmentObject var triviaManager : TriviaManager
-    @State private var isTriviaReady = false
     @Binding var isTabBarHidden: Bool
     
     let categoryIcons: [String: String] = [
@@ -39,29 +38,23 @@ struct QuizConfirmationView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 30)
                 
-                Button(action: {
-                    Task {
-                        
-                        isTriviaReady = true
-                    }
-                }) {
+                NavigationLink {
+                    TriviaView(category: category, isTabBarHidden: $isTabBarHidden)
+
+                    
+                    
+                } label: {
                     PrimaryButton(text: "Start Quiz")
                         .font(Font.custom("Oswald", size: 17))
                 }
                 .padding(.top, 10)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .toolbar(.hidden, for: .tabBar)
-        .navigationDestination(isPresented: $isTriviaReady) {
-            TriviaView(isTabBarHidden: $isTabBarHidden)
-                .environmentObject(triviaManager)
-        }
         .onAppear {
             Task{
-
-                print("📡 Calling playQuiz with category: \(category)") // Debugging
-                await triviaManager.playQuiz(category: category)
-                print("✅ Finished fetching trivia")
+                isTabBarHidden = true
             }
         }
     }

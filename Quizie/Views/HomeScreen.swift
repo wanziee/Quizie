@@ -83,6 +83,9 @@ struct HomeScreen: View {
                 .frame(maxHeight: .infinity, alignment: .bottom)
                 .ignoresSafeArea()
             }
+            .onAppear{
+                isTabBarHidden = false
+            }
 
         }
         .navigationBarBackButtonHidden(true)

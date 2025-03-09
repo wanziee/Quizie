@@ -28,25 +28,37 @@ struct QuestionView: View {
                             .fontWeight(.heavy)
                             .font(Font.custom("Oswald", size: 18))
                     }
-                    
                     ProgressBar(progress: triviaManager.progress)
-                    
-                    VStack(alignment: .leading, spacing: 20){
-                        Text(triviaManager.question)
-                            .font(Font.custom("Oswald", size: 23))
-                            .fontWeight(.heavy)
-                        
-                        ForEach(triviaManager.answerChoices, id: \.id){ answer in
-                            AnswerRow(answer: answer)
-                                .environmentObject(triviaManager)
+                    if triviaManager.length == 0{
+                        VStack {
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle())
+                                .scaleEffect(2) // Memperbesar ukuran indikator
+
                         }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .padding(.top, 200)
+                    } else {
+                        VStack(alignment: .leading, spacing: 20){
+                            Text(triviaManager.question)
+                                .font(Font.custom("Oswald", size: 23))
+                                .fontWeight(.heavy)
+                            
+                            ForEach(triviaManager.answerChoices, id: \.id){ answer in
+                                AnswerRow(answer: answer)
+                                    .environmentObject(triviaManager)
+                            }
+                        }
+                        
+                        Button {
+                            triviaManager.goToNextQuestion()
+                        } label: {
+                            PrimaryButton(text: "next", background:triviaManager.answerSelected ? Color.black : Color(hue: 1.0, saturation: 0.0, brightness: 0.564, opacity: 0.927))
+                        }
+                        
+                        
                     }
                     
-                    Button {
-                        triviaManager.goToNextQuestion()
-                    } label: {
-                        PrimaryButton(text: "next", background:triviaManager.answerSelected ? Color.black : Color(hue: 1.0, saturation: 0.0, brightness: 0.564, opacity: 0.927))
-                    }
                     
                     
                     Spacer()

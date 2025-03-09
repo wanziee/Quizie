@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TriviaView: View {
     @EnvironmentObject var triviaManager: TriviaManager
+    let category : String
     @Binding var isTabBarHidden: Bool
     var body: some View {
         
@@ -48,15 +49,22 @@ struct TriviaView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
-        }else{
+        }else {
             QuestionView()
                 .environmentObject(triviaManager)
+                .onAppear{
+                    Task{
+                        print("📡 Calling playQuiz with category: \(category)")
+                        await triviaManager.playQuiz(category: category)
+                        print("✅ Finished fetching trivia")
+                    }
+                }
         }
         
     }
 }
 
 #Preview {
-    TriviaView(isTabBarHidden: .constant(false))
+    TriviaView(category: "random", isTabBarHidden: .constant(false))
         .environmentObject(TriviaManager())
 }
