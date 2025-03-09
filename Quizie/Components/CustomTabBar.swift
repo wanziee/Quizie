@@ -32,7 +32,7 @@ struct CustomTabBar: View {
                         }
                     }
                     .foregroundStyle(activeTab == tab ? activeforeground : .gray)
-                    .padding(.vertical,2)
+                    .padding(.vertical,5)
                     .padding(.leading, 10)
                     .padding(.trailing, 15)
                     .contentShape(.rect)
@@ -52,7 +52,7 @@ struct CustomTabBar: View {
                 .buttonStyle(.plain)
             }
         }
-        .padding(.horizontal, 10)
+        .padding(.horizontal, 5)
         .frame(height: 50)
         .background(
             Color.white

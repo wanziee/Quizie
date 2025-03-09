@@ -50,6 +50,7 @@ struct QuizConfirmationView: View {
                 .padding(.top, 10)
             }
         }
+        .toolbar(.hidden, for: .tabBar)
         .navigationDestination(isPresented: $isTriviaReady) {
             TriviaView()
                 .environmentObject(triviaManager)

@@ -28,6 +28,7 @@ struct CardPopular: View {
                                         NavigationLink {
                                             QuizConfirmationView(category: quiz.category)
                                                 .environmentObject(triviaManager)
+                                                .toolbar(.hidden, for: .tabBar)
                                             
                                         } label: {
                                             CardButton(text: "Play")
