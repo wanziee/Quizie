@@ -21,7 +21,7 @@ class TriviaManager: ObservableObject{
     @Published private(set) var answerChoices: [Answer] = []
     @Published private(set) var progress: CGFloat = 0.00
     @Published private(set) var score = 0
-    
+    @Published var category: String
     
     @Published var recentPlayed: [RecentPlayedModel] {
         didSet {
@@ -32,7 +32,7 @@ class TriviaManager: ObservableObject{
     }
 
     
-    private var category: String
+
     //    private var isFetching = false
     
     init(category: String = "random") {
@@ -116,7 +116,7 @@ class TriviaManager: ObservableObject{
     
     func setQuestion(){
         answerSelected = false
-        progress = CGFloat(Double(index + 1) / Double(length) * 350)
+        progress = min(1.0, CGFloat(index + 1) / CGFloat(length))
         
         if index < length{
             let currentTriviaQuestion = trivia[index]

@@ -8,21 +8,40 @@
 import SwiftUI
 
 struct ProgressBar: View {
+    @EnvironmentObject var triviaManager : TriviaManager
     var progress:CGFloat
-    var body: some View {
-        ZStack(alignment: .leading){
-            Rectangle()
-                .frame(maxWidth: 350, maxHeight: 4)
-                .foregroundStyle(Color(hue: 350, saturation: 0.0, brightness: 0.564, opacity: 0.327))
-                .cornerRadius(10)
-            
-            Rectangle()
-                .frame(width: progress, height: 4)
-                .cornerRadius(10)
+    
+    var progressColor: Color {
+        switch triviaManager.category {
+        case "random": return .red
+        case "geography": return .yellow
+        case "sport": return .green
+        default: return .black
         }
+    }
+    
+    var body: some View {
+        GeometryReader { geometry in
+                    ZStack(alignment: .leading) {
+                        // Background Bar (Full width)
+                        Rectangle()
+                            .frame(height: 10)
+                            .foregroundStyle(Color.gray.opacity(0.3))
+                            .cornerRadius(10)
+                        
+                        // Progress Bar
+                        Rectangle()
+                            .frame(width: geometry.size.width * triviaManager.progress, height: 10) // Responsive width
+                            .foregroundStyle(progressColor)
+                            .cornerRadius(10)
+                    }
+                }
+                .frame(height: 10) // Tetapkan tinggi GeometryReader
     }
 }
 
 #Preview {
     ProgressBar(progress:50)
+        .environmentObject(TriviaManager())
+    
 }

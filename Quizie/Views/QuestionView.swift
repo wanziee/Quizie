@@ -10,6 +10,16 @@ import SwiftUI
 struct QuestionView: View {
     
     @EnvironmentObject var triviaManager: TriviaManager
+    
+    var progressColor: Color {
+        switch triviaManager.category {
+        case "random": return .red
+        case "geography": return .yellow
+        case "sport": return .green
+        default: return .black
+        }
+    }
+    
     var body: some View {
         ZStack{
             LinearGradient(gradient: .init(colors: [Color("backgroundColor"),.white]), startPoint: .top, endPoint: .bottom)
@@ -24,11 +34,21 @@ struct QuestionView: View {
                         
                         Spacer()
                         
-                        Text("\(triviaManager.index + 1) out of \(triviaManager.length)")
-                            .fontWeight(.heavy)
-                            .font(Font.custom("Oswald", size: 18))
+                        HStack{
+                            Text("\(triviaManager.index + 1)")
+                                .fontWeight(.heavy)
+                                .font(Font.custom("Oswald", size: 23))
+                                .foregroundStyle(progressColor)
+                            Text("out of \(triviaManager.length)")
+                                .fontWeight(.heavy)
+                                .font(Font.custom("Oswald", size: 20))
+                        }
+
                     }
+                    
                     ProgressBar(progress: triviaManager.progress)
+                    
+                    
                     if triviaManager.length == 0{
                         VStack {
                             ProgressView()
