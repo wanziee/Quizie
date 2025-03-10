@@ -152,4 +152,17 @@ class TriviaManager: ObservableObject{
         self.category = category.lowercased() // Pastikan kategori sesuai dengan API
             await fetchTrivia() // Ambil pertanyaan baru
     }
+    
+    func reset() {
+        self.trivia = []
+        self.length = 0
+        self.index = 0
+        self.score = 0
+        self.progress = 0.00
+        self.reachedEnd = false
+        self.answerSelected = false
+        self.question = ""
+        self.answerChoices = []
+    }
+
 }

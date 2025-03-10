@@ -33,6 +33,7 @@ struct TriviaView: View {
                         HStack(spacing: 15){
                             Button{
                                 Task{
+                                    triviaManager.reset()
                                     await triviaManager.fetchTrivia()
                                 }
                             } label: {
