@@ -51,7 +51,7 @@ struct TriviaView: View {
             }
             .navigationBarBackButtonHidden(true)
         }else {
-            QuestionView()
+            QuestionView(isTabBarHidden: $isTabBarHidden)
                 .environmentObject(triviaManager)
                 .onAppear{
                     Task{

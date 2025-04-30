@@ -24,7 +24,7 @@ struct ContentView: View {
                             
                         }
                         Tab.init(value: .search){
-                            Text("Search")
+                            CategoriesView()
                                 .toolbarVisibility(.hidden, for: .tabBar)
                         }
                         Tab.init(value: .notifications){

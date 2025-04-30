@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUICore
 
 struct CardPopularModel: Identifiable {
     let id = UUID()
@@ -15,6 +16,7 @@ struct CardPopularModel: Identifiable {
     var isLiked: Bool
     let img: String
     let icon: String
+    let Color: Color
     
 
 }

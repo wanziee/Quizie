@@ -21,12 +21,12 @@ struct CustomTabBar: View {
                 } label: {
                     HStack(spacing: 5){
                         Image(systemName: tab.rawValue)
-                            .font(.title3.bold())
+                            .fontWeight(.bold)
                             .frame(width: 30, height: 30)
                         
                         if activeTab == tab{
                             Text(tab.title)
-                                .font(Font.custom("Oswald", size: 14))
+                                .font(Font.custom("Oswald", size: 12))
                                 .fontWeight(.semibold)
                                 .lineLimit(1)
                         }
