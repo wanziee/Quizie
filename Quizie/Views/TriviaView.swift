@@ -41,7 +41,7 @@ struct TriviaView: View {
                             }
                             
                             NavigationLink{
-                                HomeScreen( isTabBarHidden: $isTabBarHidden)
+                                ContentView()
                             } label: {
                                 PrimaryButton(text: "Go Home")
                             }
