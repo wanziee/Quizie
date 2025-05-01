@@ -10,6 +10,7 @@ import SwiftUI
 struct QuestionView: View {
     
     @EnvironmentObject var triviaManager: TriviaManager
+    @Binding var isTabBarHidden: Bool
     
     var progressColor: Color {
         switch triviaManager.category {
@@ -26,28 +27,46 @@ struct QuestionView: View {
                 .ignoresSafeArea()
             ScrollView{
                 VStack(spacing: 40){
-                    HStack{
-                        Image("logo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height:50)
-                        
-                        Spacer()
-                        
-                        HStack{
-                            Text("\(triviaManager.index + 1)")
-                                .fontWeight(.heavy)
-                                .font(Font.custom("Oswald", size: 23))
-                                .foregroundStyle(progressColor)
-                            Text("out of \(triviaManager.length)")
-                                .fontWeight(.heavy)
-                                .font(Font.custom("Oswald", size: 20))
-                        }
+                    VStack{
+                        ZStack {
+                            Text("\(triviaManager.category.capitalized) Quiz")
+                                .font(Font.custom("Oswald", size: 25))
+                                .fontWeight(.bold)
+                            
+                            HStack {
+                                NavigationLink{
+                                    HomeScreen(isTabBarHidden: $isTabBarHidden)
+                                } label: {
+                                    Image(systemName: "chevron.left")
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(Color.gray)
+                                }
 
+                                
+                                Spacer()
+                                
+                                
+                            }
+                        }
+                        
+                        VStack{
+                            ProgressBar(progress: triviaManager.progress)
+                            
+                            HStack {
+                                Text("\(triviaManager.index + 1)")
+                                    .fontWeight(.heavy)
+                                    .font(Font.custom("Oswald", size: 25))
+                                    .foregroundStyle(progressColor)
+                                Text("/ \(triviaManager.length)")
+                                    .fontWeight(.heavy)
+                                    .font(Font.custom("Oswald", size: 20))
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        }
                     }
+
                     
-                    ProgressBar(progress: triviaManager.progress)
-                    
+
                     
                     if triviaManager.length == 0{
                         VStack {
@@ -61,8 +80,9 @@ struct QuestionView: View {
                     } else {
                         VStack(alignment: .leading, spacing: 20){
                             Text(triviaManager.question)
-                                .font(Font.custom("Oswald", size: 23))
+                                .font(Font.custom("Oswald", size: 25))
                                 .fontWeight(.heavy)
+                                .padding(.bottom, 20)
                             
                             ForEach(triviaManager.answerChoices, id: \.id){ answer in
                                 AnswerRow(answer: answer)
@@ -91,6 +111,6 @@ struct QuestionView: View {
 }
 
 #Preview {
-    QuestionView()
+    QuestionView(isTabBarHidden: .constant(false))
         .environmentObject(TriviaManager())
 }
