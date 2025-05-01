@@ -24,7 +24,8 @@ struct ContentView: View {
                             
                         }
                         Tab.init(value: .search){
-                            CategoriesView()
+                            CategoriesView(isTabBarHidden: $isTabBarHidden)
+                                .environmentObject(TriviaManager())
                                 .toolbarVisibility(.hidden, for: .tabBar)
                         }
                         Tab.init(value: .notifications){

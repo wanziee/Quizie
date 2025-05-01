@@ -39,6 +39,24 @@ struct CardButton: View {
     }
 }
 
+struct ItemButton: View {
+    var text: String
+    var background: Color = Color.black
+
+    var body: some View {
+        Text(text)
+            .foregroundStyle(Color.white)
+            .padding(10)
+            .padding(.horizontal, 10)
+            .background(background)
+            .cornerRadius(50)
+            .fontWeight(.heavy)
+        
+    }
+}
+
+
+
 struct PlayAgainButton: View {
     var text: String
 
@@ -61,5 +79,5 @@ struct PlayAgainButton: View {
 
 #Preview {
 
-    PlayAgainButton(text: "Play Again")
+    ItemButton(text: "Sport")
 }
